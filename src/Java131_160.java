@@ -1,4 +1,7 @@
-public class Java131 {
+import javax.swing.*;
+import java.util.Arrays;
+
+public class Java131_160 {
     public static void main(String[] args) {
         // 131 ~
         String[] fruits = new String[3];
@@ -86,25 +89,62 @@ public class Java131 {
             }
         }
 
+        // 155 대문자 확인 -> 문자 char 만 가능 ? ㅇㅇ
+        char[] arr155 = new char[]{'A', 'b', 'c', 'D'};
 
-
-    }
-    // 155 대소문자 여부 판별
-    // char 타입 : Character.isUpperCase()/isLowerCase()
-    // String 타입 : 문자열 -> char -> 배열요소 순회
-    public static String java155(String str){
-        String[] arr155 = new String[]{"A", "b", "c", "D"};
-        char[] arr155_c = new char[]{};
-        System.out.println(arr155_c);
         for (int i = 0; i < arr155.length; i++) {
-            arr155_c = arr155[i].toCharArray();
-            for (int j = 0; j < arr155_c.length; j++) {
-                if (!Character.isUpperCase(arr155_c[j])) {
-                    return "false";
-                }
+            if (Character.isUpperCase(arr155[i])) { // char 에만 있는 메서드
+                System.out.println(arr155[i] + "는 대문자");
             }
-            return "true";
         }
-    return "";
+        // 155 대문자 아스키코드로 판단
+        char[] arr155_a = new char[]{'A', 'b', 'c', 'D'};
+
+        for (int i = 0; i < arr155_a.length; i++) {
+            if (arr155[i] >= 65 && arr155[i] <= 90) {
+                // 대문자 : 65~90
+                // 소문자 : 97~122
+                System.out.println("아스키 대문자" + arr155[i]);
+            }
+        }
+
+        // 157 첫글자 대문자 변경 출력
+        String[] arr157 = new String[]{"dog", "cat", "parrot"};
+        for (int i = 0; i < arr157.length; i++) {
+            // 1. 첫 글자 / 나머지 글자 나눈다 -> substring() 사용
+            String first = arr157[i].substring(0,1); // 0이상 1미만
+            String rest = arr157[i].substring(1); // 1이상~끝까지
+            // 2. 첫글자는 대문자, 나머지는 소문자로 변환
+            first = first.toUpperCase();
+            rest = rest.toLowerCase();
+            // 3. 이어붙이기
+            String rs = first + rest;
+            System.out.println(rs);
+    // 참고 : 문자열의 첫 글자는 charAt을 통해 char 형태로 가져올 수 있다
+    // arr156[i].charAt(0);
+        }
+
+        // 158 확장자 제거 + 파일 이름만 출력
+        String[] arr158 = new String[]{"hello.py", "ex01.py", "intro.hwp"};
+        String arr158_str;
+        for (int i = 0; i < arr158.length; i++) {
+            arr158_str = arr158[i].substring(0, arr158[i].lastIndexOf("."));
+            // substring(시작위치, 끝위치)
+            // indexOf / lastIndexOf : 특정 문자 위치 찾기
+            System.out.println(arr158_str);
+        }
+
+        // 159 확장자가 .h인 파일 이름 출력
+        String[] arr159 = new String[]{"배열.py", "java_159번.h", "for문.h", "substring사용.java"};
+        String extension; // 확장자
+        for (int i = 0; i < arr159.length; i++) {
+            extension = arr159[i].substring(arr159[i].lastIndexOf(".")); // .뒤의 값들
+//            System.out.println("확장자 : " + extension);
+            if (extension.equals(".h") || extension.equals(".java")) { // 문자열 비교
+                // == 는 object가 동일한지를 비교함
+                System.out.println("값 : " + arr159[i]);
+            }
+        }
+
     }
 }
