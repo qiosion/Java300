@@ -54,14 +54,11 @@ public class Java171_180 {
         int gap;
 //        System.out.println(size);
         Integer[] arr180 = new Integer[size]; // 배열 형태 int가 아니라 Integer
-        List<Integer> list = new ArrayList<>(Arrays.asList(arr180));
+        List<Integer> list = new ArrayList<>(); // 빈 리스트
         for (int i = 0; i < size; i++) {
             gap = high_prices[i] - low_prices[i];
             list.add(gap);
         }
-        // 왜 리스트에서 null 값이 뜨지?..
-        // 그리고 왜 제거할때 그냥 null 이 아니라 ""도 추가해줘야하는거야?
-        list.removeAll(Arrays.asList("", null));
         arr180 = list.toArray(arr180);
         System.out.println(Arrays.toString(arr180));
     }
