@@ -124,6 +124,28 @@ public class Java131_160 {
     // arr156[i].charAt(0);
         }
 
+        // 이어붙이기 x 그냥 소문자 -> 대문자
+//        for (String i : arr157) {
+//            char c = i.charAt(0); // 첫번째 글자만 빼서 c에 넣음
+//            if (c >= 'a' && c <= 'z') { // 첫번째 글자가 소문자면
+//                System.out.println("소문자");
+//                c = (char) ( c + 'A' - 'a');
+//                // char은 숫자! 라고 봄
+//                // 입력값 + (대문자 - 소문자) => 입력값의 대문자 버전이 나옴
+//                System.out.println("변환된 값 : " + c);
+//            }
+//        }
+
+        // 대문자 -> 소문자
+        String[] test = new String[]{"DOG", "CAT"};
+        for (String i : test) {
+            char c = i.charAt(0);
+            if (c >= 'A' && c <= 'Z') {
+                c = (char)( c + ('a' - 'A'));
+                System.out.println("소문자c : " + c);
+            }
+        }
+
         // 158 확장자 제거 + 파일 이름만 출력
         String[] arr158 = new String[]{"hello.py", "ex01.py", "intro.hwp"};
         String arr158_str;
@@ -145,6 +167,5 @@ public class Java131_160 {
                 System.out.println("값 : " + arr159[i]);
             }
         }
-
     }
 }
